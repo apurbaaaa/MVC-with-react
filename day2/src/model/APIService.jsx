@@ -1,33 +1,38 @@
-import axios from "axios";
-import React from "react";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-const api = '58582bab7d8c113dedcb72a2ba71a6ca';
-
-
-function useFetchData(){
-    const [data, setData] = useState([]);
+function useFetchData(location) {
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect (() => {
-        const fetchData = async (city) => {
-            try{
-                const response = axios.get({/*url*/})
-                setData(response.data);
+    useEffect(() => {
+        const fetchData = async () => {
+            const api = '58582bab7d8c113dedcb72a2ba71a6ca';
+            try {
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${api}`);
+                if (response.data) {
+                    console.log(response.data);
+                    const { name, main, dt } = response.data;
+                    const temperature = main.temp;
+                    const time = new Date(dt * 1000).toLocaleTimeString();//*1000 from seconfs to ms 
+                    setData({ place: name, temperature, time });
+                } else {
+                    setError('No data received from the server.');
+                }
+            } catch (err) {
+                setError('Failed to fetch weather data. Please try again.');
+            } finally {
+                setLoading(false);
             }
-            catch(err) {
-                setError(err);
-            }
-            finally{
-                setLoading(false)
-            }
+        };
+
+        if (location) {
+            fetchData();
         }
-        fetchData();
-    }, [url]);//dependency array
+    }, [location]);
 
-    return { data, loading, error}
-
-};
+    return { data, loading, error };
+}
 
 export default useFetchData;

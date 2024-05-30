@@ -1,0 +1,6 @@
+.weather-box{
+    border: 10px solid black;
+    border-radius: 5px;
+    height: 250px;
+    width: 150px;
+}

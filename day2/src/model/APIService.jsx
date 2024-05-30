@@ -7,7 +7,7 @@ function useFetchData(location) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async () => {//async and await used because axios getting takes a while 
             const api = '58582bab7d8c113dedcb72a2ba71a6ca';
             try {
                 const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${api}`);
@@ -32,7 +32,7 @@ function useFetchData(location) {
         }
     }, [location]);
 
-    return { data, loading, error };
+    return { data, loading, error };//loading and error sent from the Model but not used by the controller
 }
 
 export default useFetchData;

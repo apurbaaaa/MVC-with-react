@@ -20,6 +20,9 @@ export default function App() {
     setMenuOpen(!menuOpen);
   }
 
+  const handleClose = () =>{
+    setMenuOpen(!menuOpen);
+  }
   //because SaveJournal is an asynchronous event, async-await is to be used
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -36,7 +39,7 @@ export default function App() {
   return (
     <div>
       <TopNav handleMenuButton = {handleMenuButton} />
-      <NavBar />
+      <NavBar isOpen = {menuOpen} handleClose={handleClose}/>
       <Text inputText={inputText} handleInputChange={handleInputChange} />
       <SaveButton handleSubmit={handleSubmit} />
     </div>

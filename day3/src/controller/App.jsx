@@ -3,15 +3,21 @@ import SaveJournal from '../model/SaveJournal';
 import Text from '../view/Text';
 import SaveButton from '../view/SaveButton';
 import TopNav from '../view/TopNav';
+import NavBar from '../view/NavBar';
 
 
 
 export default function App() {
 
   const [inputText, setInputText] = useState('')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleInputChange = (event) =>{
     setInputText(event.target.value);
+  }
+
+  const handleMenuButton = (event) =>{
+    setMenuOpen(!menuOpen);
   }
 
   //because SaveJournal is an asynchronous event, async-await is to be used
@@ -29,7 +35,8 @@ export default function App() {
 
   return (
     <div>
-      <TopNav />
+      <TopNav handleMenuButton = {handleMenuButton} />
+      <NavBar />
       <Text inputText={inputText} handleInputChange={handleInputChange} />
       <SaveButton handleSubmit={handleSubmit} />
     </div>

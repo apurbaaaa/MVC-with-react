@@ -1,7 +1,7 @@
 import React from "react";
 import {todaysDate} from '../utils/GetDate'
 
-function TopNav(){
+function TopNav({handleMenuButton}){
 
     const { month, date, year, day, hour, minutes } = todaysDate();
 
@@ -9,7 +9,7 @@ function TopNav(){
         <div>
             <ul>
                 <li>
-                <div className="menu-icon">
+                <div className="menu-icon" onClick={handleMenuButton}>
                     <span class="line">menu</span>
                     <span class="line">menu</span>
                     <span class="line">menu</span>

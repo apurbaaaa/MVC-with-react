@@ -7,3 +7,5 @@ function SaveButton({handleSubmit}){
         </div>
     );
 }
+
+export default SaveButton;

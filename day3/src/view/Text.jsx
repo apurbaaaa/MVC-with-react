@@ -9,3 +9,5 @@ function Text({inputText, handleInputChange}){
         
     );
 }
+
+export default Text;

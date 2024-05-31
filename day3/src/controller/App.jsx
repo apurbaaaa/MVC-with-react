@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SaveJournal from '../model/SaveJournal';
 import Text from '../view/Text';
 import SaveButton from '../view/SaveButton';
+import TopNav from '../view/TopNav';
 
 
 
@@ -28,6 +29,7 @@ export default function App() {
 
   return (
     <div>
+      <TopNav />
       <Text inputText={inputText} handleInputChange={handleInputChange} />
       <SaveButton handleSubmit={handleSubmit} />
     </div>

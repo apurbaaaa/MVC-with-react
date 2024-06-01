@@ -34,12 +34,14 @@ export default function App() {
     }
   };
     
-  
+  const handleNavClick = (event) =>{
+    console.log("NavButton Clicked");
+  }
 
   return (
     <div>
       <TopNav handleMenuButton = {handleMenuButton} />
-      <NavBar isOpen = {menuOpen} handleClose={handleClose}/>
+      <NavBar isOpen = {menuOpen} handleClose={handleClose} handleNavClick={handleNavClick}/>
       <Text inputText={inputText} handleInputChange={handleInputChange} />
       <SaveButton handleSubmit={handleSubmit} />
     </div>

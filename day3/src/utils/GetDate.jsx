@@ -6,9 +6,13 @@ export function todaysDate(){
     const day1 = today.getDay();
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const day = dayNames[day1];
-    const minutes= today.getMinutes();
+    const minutes= padNumber(today.getMinutes());
     const hour = today.getHours();
 
     return {month, date, year, day, hour, minutes};
     
+}
+
+function padNumber(num) {
+    return num.toString().padStart(2, '0');
 }

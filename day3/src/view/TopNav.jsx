@@ -21,7 +21,6 @@ function TopNav({ handleMenuButton, isMenuOpen }) {
                         <h6 className="text-sm">{hour}:{minutes}</h6>
                     </div>
                 </li>
-                <li></li> {/* This empty li is for spacing */}
             </ul>
             {isMenuOpen && (
                 <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-40" onClick={handleMenuButton}></div>

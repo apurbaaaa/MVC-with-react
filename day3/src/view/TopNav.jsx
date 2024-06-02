@@ -1,8 +1,10 @@
 import React from "react";
 import { todaysDate } from '../utils/GetDate';
+import { GetTime } from "../utils/GetTime";
 
 function TopNav({ handleMenuButton, isMenuOpen }) {
-    const { month, date, year, day, hour, minutes } = todaysDate();
+    const { month, date, year, day } = todaysDate();
+    const { time } = GetTime();
 
     return (
         <div className="bg-gray-800 p-4 shadow-lg relative">
@@ -18,7 +20,7 @@ function TopNav({ handleMenuButton, isMenuOpen }) {
                     <div className="text-center">
                         <h2 className="text-xl">{month}/{date}/{year}</h2>
                         <h3 className="text-lg">{day}</h3>
-                        <h6 className="text-sm">{hour}:{minutes}</h6>
+                        <h6 className="text-sm">{time}</h6>
                     </div>
                 </li>
             </ul>

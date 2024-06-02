@@ -5,14 +5,9 @@ export function todaysDate(){
     const year = today.getFullYear();
     const day1 = today.getDay();
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const day = dayNames[day1];
-    const minutes= padNumber(today.getMinutes());
-    const hour = today.getHours();
+    const day = dayNames[day1];;
 
-    return {month, date, year, day, hour, minutes};
+    return {month, date, year, day};
     
 }
 
-function padNumber(num) {
-    return num.toString().padStart(2, '0');
-}

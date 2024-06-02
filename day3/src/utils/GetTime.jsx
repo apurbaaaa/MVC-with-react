@@ -11,6 +11,8 @@ export function GetTime() {
         return () => clearInterval(timerId); 
     }, []);
 
+    //setInterval schedules calling of the callback function at the specified time interval.
+
     return {time}
 }
 
